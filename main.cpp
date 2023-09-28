@@ -1,40 +1,40 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
+
 using namespace std;
 
 //Main function
 int main() {
 
-    string fact;
+    string sentence;
+    cout << "Enter a sentence (Any length): " << endl;
+    getline (cin,sentence);
+    int index = 0; //index means location in the string (aka letter)
+    int count = 0; //starts count at 0
+    int maxL = 0;
+    int lcount = 0;
+    while(index < sentence.length()){
+        if(sentence[index] == 'a' ||
+            sentence[index] == 'e' ||
+            sentence[index] == 'i' ||
+            sentence[index] == 'o' ||
+            sentence[index] == 'u'){
+            count = count+1;
+        }
+        if(sentence[index] == ' '){
+            if(maxL < count){
+                maxL = lcount;
+            }
+            lcount = 0;
 
-    //Ask user for age (asks for users input int)
 
-    cout << "What is your age?" << endl;
-    cout << "Enter age here: ";
-    getline (cin,fact);
-    cout << "You are " << fact << " years old" "\n";
+        }else
+            lcount = lcount +1;
+        index = index +1;
+    }
+    cout << "The # of vowels is: " << count << endl;
+    cout << "The longest word is: " << maxL;
 
-    //Ask user for favorite color (asks for users input char)
-
-    cout << "What is your favorite color?" "\n";
-    cout << "Enter Favorite color here: ";
-    getline (cin,fact);
-    cout << "Your favorite color is " << fact << "\n";
-
-    //Ask user for any programming experience (yes/no/char)
-
-    cout << "Do you have any programming experience?" "\n";
-    cout << "Enter (Yes/No) Only: ";
-    getline (cin,fact);
-
-    //If user inputs "no" then they receive answer "a"
-
-    if (fact.compare("no") == 0 )
-        cout << "Your programming experience is low, keep learning!"; //"a"
-
-    //If user inputs "yes" then they receive answer "b"
-
-    if (fact.compare("yes") == 0 )
-        cout << "You are a Pro Programmer, but still lots to learn."; //"b"
 }
